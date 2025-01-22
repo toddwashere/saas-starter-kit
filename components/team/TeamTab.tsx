@@ -1,9 +1,9 @@
 import {
   Cog6ToothIcon,
-  DocumentMagnifyingGlassIcon,
-  KeyIcon,
-  PaperAirplaneIcon,
-  ShieldExclamationIcon,
+  // DocumentMagnifyingGlassIcon,
+  // KeyIcon,
+  // PaperAirplaneIcon,
+  // ShieldExclamationIcon,
   UserPlusIcon,
   BanknotesIcon,
 } from '@heroicons/react/24/outline';
