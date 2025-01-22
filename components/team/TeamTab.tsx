@@ -41,41 +41,41 @@ const TeamTab = ({ activeTab, team, heading, teamFeatures }: TeamTabProps) => {
     });
   }
 
-  if (
-    teamFeatures.sso &&
-    canAccess('team_sso', ['create', 'update', 'read', 'delete'])
-  ) {
-    navigations.push({
-      name: 'Single Sign-On',
-      href: `/teams/${team.slug}/sso`,
-      active: activeTab === 'sso',
-      icon: ShieldExclamationIcon,
-    });
-  }
+  // if (
+  //   teamFeatures.sso &&
+  //   canAccess('team_sso', ['create', 'update', 'read', 'delete'])
+  // ) {
+  //   navigations.push({
+  //     name: 'Single Sign-On',
+  //     href: `/teams/${team.slug}/sso`,
+  //     active: activeTab === 'sso',
+  //     icon: ShieldExclamationIcon,
+  //   });
+  // }
 
-  if (
-    teamFeatures.dsync &&
-    canAccess('team_dsync', ['create', 'update', 'read', 'delete'])
-  ) {
-    navigations.push({
-      name: 'Directory Sync',
-      href: `/teams/${team.slug}/directory-sync`,
-      active: activeTab === 'directory-sync',
-      icon: UserPlusIcon,
-    });
-  }
+  // if (
+  //   teamFeatures.dsync &&
+  //   canAccess('team_dsync', ['create', 'update', 'read', 'delete'])
+  // ) {
+  //   navigations.push({
+  //     name: 'Directory Sync',
+  //     href: `/teams/${team.slug}/directory-sync`,
+  //     active: activeTab === 'directory-sync',
+  //     icon: UserPlusIcon,
+  //   });
+  // }
 
-  if (
-    teamFeatures.auditLog &&
-    canAccess('team_audit_log', ['create', 'update', 'read', 'delete'])
-  ) {
-    navigations.push({
-      name: 'Audit Logs',
-      href: `/teams/${team.slug}/audit-logs`,
-      active: activeTab === 'audit-logs',
-      icon: DocumentMagnifyingGlassIcon,
-    });
-  }
+  // if (
+  //   teamFeatures.auditLog &&
+  //   canAccess('team_audit_log', ['create', 'update', 'read', 'delete'])
+  // ) {
+  //   navigations.push({
+  //     name: 'Audit Logs',
+  //     href: `/teams/${team.slug}/audit-logs`,
+  //     active: activeTab === 'audit-logs',
+  //     icon: DocumentMagnifyingGlassIcon,
+  //   });
+  // }
 
   if (
     teamFeatures.payments &&
@@ -89,29 +89,29 @@ const TeamTab = ({ activeTab, team, heading, teamFeatures }: TeamTabProps) => {
     });
   }
 
-  if (
-    teamFeatures.webhook &&
-    canAccess('team_webhook', ['create', 'update', 'read', 'delete'])
-  ) {
-    navigations.push({
-      name: 'Webhooks',
-      href: `/teams/${team.slug}/webhooks`,
-      active: activeTab === 'webhooks',
-      icon: PaperAirplaneIcon,
-    });
-  }
+  // if (
+  //   teamFeatures.webhook &&
+  //   canAccess('team_webhook', ['create', 'update', 'read', 'delete'])
+  // ) {
+  //   navigations.push({
+  //     name: 'Webhooks',
+  //     href: `/teams/${team.slug}/webhooks`,
+  //     active: activeTab === 'webhooks',
+  //     icon: PaperAirplaneIcon,
+  //   });
+  // }
 
-  if (
-    teamFeatures.apiKey &&
-    canAccess('team_api_key', ['create', 'update', 'read', 'delete'])
-  ) {
-    navigations.push({
-      name: 'API Keys',
-      href: `/teams/${team.slug}/api-keys`,
-      active: activeTab === 'api-keys',
-      icon: KeyIcon,
-    });
-  }
+  // if (
+  //   teamFeatures.apiKey &&
+  //   canAccess('team_api_key', ['create', 'update', 'read', 'delete'])
+  // ) {
+  //   navigations.push({
+  //     name: 'API Keys',
+  //     href: `/teams/${team.slug}/api-keys`,
+  //     active: activeTab === 'api-keys',
+  //     icon: KeyIcon,
+  //   });
+  // }
 
   return (
     <div className="flex flex-col pb-6">
