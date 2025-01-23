@@ -69,6 +69,8 @@ model User {
   sessions         Session[]
   invitations      Invitation[]
   systemAdminRoles SystemAdminRole[]
+
+  @@index(email)
 }
 
 enum Role {
