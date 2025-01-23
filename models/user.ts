@@ -46,18 +46,20 @@ export const upsertUser = async ({ where, update, create }) => {
   });
 };
 
-export const getUser = async (key: { id: string } | { email: string }) => {
+export const getUser = async (key: { id: string } | { email: string }, includeSensitiveInfo = false) => {
+
+  const select = includeSensitiveInfo ? null : {
+    id: true,
+    email: true,
+    name: true,
+    emailVerified: true,
+    image: true,
+    systemAdminRoles: true,
+    // DO NOT INCLUDE PASSWORD or other security related info here, unless includeSensitiveInfo is true
+  }
   const user = await prisma.user.findUnique({
     where: key,
-    select: {
-      id: true,
-      email: true,
-      name: true,
-      emailVerified: true,
-      image: true,
-      systemAdminRoles: true,
-      // DO NOT INCLUDE PASSWORD or other security related info here
-    },
+    select,
   });
 
   return normalizeUser(user);

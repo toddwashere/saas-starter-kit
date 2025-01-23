@@ -67,7 +67,7 @@ if (isAuthProviderEnabled('credentials')) {
           return null;
         }
 
-        const user = await getUser({ email });
+        const user = await getUser({ email }, true);
 
         if (!user) {
           throw new Error('invalid-credentials');
