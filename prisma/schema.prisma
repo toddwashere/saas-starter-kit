@@ -7,12 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  ADMIN
-  OWNER
-  MEMBER
-}
-
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -51,6 +45,13 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+/// Users with administrative power, beyond single teams, for support purposes
+model SystemAdminRole {
+  userId    String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
 model User {
   id                     String    @id @default(cuid())
   name                   String
@@ -63,10 +64,17 @@ model User {
   invalid_login_attempts Int       @default(0)
   lockedAt               DateTime?
 
-  teamMembers TeamMember[]
-  accounts    Account[]
-  sessions    Session[]
-  invitations Invitation[]
+  teamMembers      TeamMember[]
+  accounts         Account[]
+  sessions         Session[]
+  invitations      Invitation[]
+  systemAdminRoles SystemAdminRole[]
+}
+
+enum Role {
+  ADMIN
+  OWNER
+  MEMBER
 }
 
 model Team {

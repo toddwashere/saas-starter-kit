@@ -34,6 +34,8 @@ import {
 import { slackNotify } from './slack';
 import { maxLengthPolicies } from '@/lib/common';
 import { forceConsume } from '@/lib/server-common';
+import { getIsSystemAdmin } from 'models/systemAdminRole';
+
 
 const adapter = PrismaAdapter(prisma);
 const providers: Provider[] = [];
@@ -96,10 +98,13 @@ if (isAuthProviderEnabled('credentials')) {
 
         await clearLoginAttempts(user);
 
+        const isAdmin = await getIsSystemAdmin(user.id);
+
         return {
           id: user.id,
           name: user.name,
           email: user.email,
+          isAdmin,
         };
       },
     })

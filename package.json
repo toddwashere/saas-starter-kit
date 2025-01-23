@@ -9,6 +9,8 @@
     "release": "git checkout release && git merge origin/main && release-it && git checkout main && git merge origin/release && git push origin main",
     "dev": "next dev --port 4002",
     "build": "prisma generate && prisma db push && next build",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "start": "next start --port 4002",
     "check-types": "tsc --pretty --noEmit",
